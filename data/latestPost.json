@@ -1,0 +1,101 @@
+[
+  {
+    "id": "1",
+    "img": "/2020/11/photo-1557800636-894a64c1696f.jpeg",
+    "bg": "background--pool",
+    "title": "Don’t be afraid",
+    "author": ["Megan Anderson", "Lauren Langford"],
+    "lock": false,
+    "tag": "Story"
+  },
+  {
+    "id": "2",
+    "img": "/2020/11/photo-1533848052694-c716c6530f9c.jpeg",
+    "bg": "background--aqua",
+    "title": "Anyone can hold the helm when the sea is calm",
+    "author": ["Megan Anderson", "Charles Barrett"],
+    "lock": true,
+    "tag": "Home"
+  },
+  {
+    "id": "3",
+    "img": "/2020/11/photo-1582020738577-2e7a48043902.jpeg",
+    "bg": "background--rose",
+    "title": "You have to fight to reach your dream",
+    "author": ["Megan Anderson"],
+    "lock": false,
+    "tag": "Product"
+  },
+  {
+    "id": "4",
+    "img": "/2020/11/photo-1580636521086-7b0c742dd567.jpeg",
+    "bg": "background--peach",
+    "title": "Cuisine is a mirror, reflecting the culture",
+    "author": ["Victoria West", "Patricia Jenkins"],
+    "lock": false,
+    "tag": "Creative"
+  },
+  {
+    "id": "5",
+    "img": "/2020/11/photo-1579618385552-046edd29f899.jpeg",
+    "bg": "background--sand",
+    "title": "Being unique is better than being perfect",
+    "author": ["Megan Anderson"],
+    "lock": false,
+    "tag": "Home"
+  },
+  {
+    "id": "6",
+    "img": "/2020/11/photo-1530653333484-d02d0faff9bf.jpeg",
+    "bg": "background--sand",
+    "title": "I always loved aesthetics",
+    "author": ["Hannah Weastell", "Victoria West"],
+    "lock": true,
+    "tag": "Home"
+  },
+  {
+    "id": "7",
+    "img": "/2020/11/photo-1590374504314-295374f053e4.jpeg",
+    "bg": "background--aqua",
+    "title": "Creating deluxe drink is like playing a sport",
+    "author": ["Victoria West"],
+    "lock": false,
+    "tag": "Lifestyle"
+  },
+  {
+    "id": "8",
+    "img": "/2020/11/photo-1560393464-5c69a73c5770.jpeg",
+    "bg": "background--rose",
+    "title": "You must grow like a tree",
+    "author": ["Patricia Jenkins", "Charles Barrett"],
+    "lock": false,
+    "tag": "Creative"
+  },
+  {
+    "id": "9",
+    "img": "/2020/11/photo-1559181567-c3190ca9959b.jpeg",
+    "bg": "background--sand",
+    "title": "My childhood was full of wonderful memories",
+    "author": ["Charles Barrett"],
+    "lock": false,
+    "tag": "Story"
+  },
+  {
+    "id": "10",
+    "img": "/2020/11/photo-1560155136-ca9fd0b25a4c.jpeg",
+    "bg": "background--pool",
+    "title": "Brand is just a perception, and will match reality over time",
+    "author": ["Charles Barrett"],
+    "lock": false,
+    "tag": "Product"
+  },
+  {
+    "id": "11",
+    "img": "/2020/11/photo-1523049673857-eb18f1d7b578.jpeg",
+    "bg": "background--rose",
+    "title": "Brand is just a perception, and will match reality over time",
+    "author": ["Charles Barrett"],
+    "lock": false,
+    "tag": "Story"
+  }
+]

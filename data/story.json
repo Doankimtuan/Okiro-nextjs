@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "img": "/2020/11/photo-1557800636-894a64c1696f.jpeg",
+    "bg": "background--pool",
+    "title": "Don’t be afraid",
+    "author": ["Megan Anderson", "Lauren Langford"]
+  },
+  {
+    "id": "2",
+    "img": "/2020/11/photo-1533848052694-c716c6530f9c.jpeg",
+    "bg": "background--aqua",
+    "title": "Anyone can hold the helm when the sea is calm",
+    "author": ["Megan Anderson", "Charles Barrett"]
+  },
+  {
+    "id": "3",
+    "img": "/2020/11/photo-1580636521086-7b0c742dd567.jpeg",
+    "bg": "background--rose",
+    "title": "Cuisine is a mirror, reflecting the culture",
+    "author": ["Victoria West", "Patricia Jenkins"]
+  },
+  {
+    "id": "4",
+    "img": "/2020/11/photo-1530653333484-d02d0faff9bf.jpeg",
+    "bg": "background--sand",
+    "title": "I always loved aesthetics",
+    "author": ["Hannah Weastell", "Victoria West"]
+  }
+]
