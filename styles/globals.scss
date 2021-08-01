@@ -11,6 +11,7 @@
 @import './header/index.module.scss';
 @import './footer/index.module.scss';
 @import './home/index.module.scss';
+@import './sign-in/index.module.scss';
 * {
   padding: 0;
   margin: 0;
@@ -275,14 +276,3 @@ input {
     padding: 0;
   }
 }
-
-// @media (min-width: 321px) {
-//      :root {
-//         --margin: 10px;
-//     }
-// }
-// @media (min-width: 1024px) {
-//      :root {
-//         --margin: 20px;
-//     }
-// }

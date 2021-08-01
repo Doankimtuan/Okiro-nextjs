@@ -1,26 +1,36 @@
+import React, { createRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
 import { useRouter } from 'next/router';
 
 export default function Header() {
-  const [openDropdown, setOpenDropdown] = React.useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [language, setLanguage] = useState('eng');
   const router = useRouter();
-  const ref = React.createRef();
+  const ref = createRef();
   const menuEng = {
-    main: ['Home', 'Membership', 'Style Guide'],
+    main: [
+      { title: 'Home', link: '/' },
+      { title: 'Membership', link: '/membership' },
+      { title: 'Style Guide', link: '/style' },
+    ],
     dropdown: ['Features', 'Authors', 'Tags', 'Subscribe', 'Contact', 'Get Theme'],
     auth: ['Sign in', 'Sign up'],
   };
-  const menuJp = {
-    main: ['ホーム', 'メンバーシップ', 'スタイルガイド'],
+  const menuja = {
+    main: [
+      { title: 'ホーム', link: '/' },
+      { title: 'メンバーシップ', link: '/membership' },
+      { title: 'スタイルガイド', link: '/style' },
+    ],
     dropdown: ['機能', '作成者', 'タグ', '購読', '連絡先', 'テーマの取得'],
     auth: ['サインイン', 'サインアップ'],
   };
-  const menu = router.locale === 'en-US' ? menuEng : menuJp;
+  const menu = router.locale === 'en-US' ? menuEng : menuja;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if (openDropdown && ref.current && !ref.current.contains(e.target)) {
         setOpenDropdown(false);
@@ -31,8 +41,22 @@ export default function Header() {
       document.removeEventListener('mousedown', checkIfClickedOutside);
     };
   }, [openDropdown]);
+
   const handleDropdown = () => {
     setOpenDropdown(!openDropdown);
+  };
+  useEffect(() => {
+    router.locale === 'en-US' ? setLanguage('eng') : setLanguage('ja');
+  }, [router.locale]);
+
+  const handleChangeLanguage = (e) => {
+    setLanguage(e.target.value);
+    // e.target.value === 'ja' ? router.push('/ja') : router.push('/hello');
+    if (e.target.value !== 'ja') {
+      router.back();
+    } else {
+      router.push('/ja');
+    }
   };
 
   return (
@@ -52,7 +76,11 @@ export default function Header() {
             <ul>
               {menu.main.map((elm, index) => (
                 <li key={index}>
-                  <a className={elm === 'Home' || elm === 'ホーム' ? 'is-active' : ''}>{elm}</a>
+                  <Link href={`${elm.link}`}>
+                    <a className={elm.title === 'Home' || elm === 'ホーム' ? 'is-active' : ''}>
+                      {elm.title}
+                    </a>
+                  </Link>
                 </li>
               ))}
               <li className="header--dropdown" onClick={() => handleDropdown()}>
@@ -78,12 +106,20 @@ export default function Header() {
                 </svg>
               </li>
               <li className="signin">
-                <a id="signin">{menu.auth[0]}</a>
+                <Link href="/sign-in">
+                  <a id="signin">{menu.auth[0]}</a>
+                </Link>
               </li>
               <li className="signup">
                 <a id="signup" className="global__button">
                   {menu.auth[1]}
                 </a>
+              </li>
+              <li>
+                <select value={language} onChange={(e) => handleChangeLanguage(e)}>
+                  <option value="eng">ENG</option>
+                  <option value="ja">JAPAN</option>
+                </select>
               </li>
             </ul>
           </nav>
