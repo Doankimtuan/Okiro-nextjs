@@ -53,7 +53,7 @@ export default function Header() {
     setLanguage(e.target.value);
     // e.target.value === 'ja' ? router.push('/ja') : router.push('/hello');
     if (e.target.value !== 'ja') {
-      router.back();
+      router.back('/en-US');
     } else {
       router.push('/ja');
     }
