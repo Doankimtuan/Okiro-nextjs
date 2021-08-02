@@ -1,62 +1,25 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { enUS, ja } from '../../translations';
 export default function Footer() {
+  const { locale } = useRouter();
+  const translate = locale === 'ja' ? ja : enUS;
   return (
     <footer className="footer">
       <div className="footer__wrap">
         <div className="footer__nav">
-          <div className="footer__nav--column">
-            <small>About</small>
-            <ul>
-              <li>
-                <a href="#">Features</a>
-              </li>
-              <li>
-                <a href="#">Style Guide</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-              <li>
-                <a href="#">Get Theme</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer__nav--column">
-            <small>Features</small>
-            <ul>
-              <li>
-                <a href="#">Account</a>
-              </li>
-              <li>
-                <a href="#">Membership</a>
-              </li>
-              <li>
-                <a href="#">Sign in</a>
-              </li>
-              <li>
-                <a href="#">Sign up</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer__nav--column">
-            <small>Support</small>
-            <ul>
-              <li>
-                <a href="#">Authors</a>
-              </li>
-              <li>
-                <a href="#">Tags</a>
-              </li>
-              <li>
-                <a href="#">Dark version</a>
-              </li>
-              <li>
-                <a href="#">404</a>
-              </li>
-            </ul>
-          </div>
+          {translate.footer.menu.map((elm, index) => (
+            <div className="footer__nav--column" key={index}>
+              <small>{elm.title}</small>
+              <ul>
+                {elm.content.map((elm, index) => (
+                  <li key={index}>
+                    <a href="#">{elm}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <div className="footer__data">
           <div className="footer__logo">
@@ -64,9 +27,7 @@ export default function Footer() {
               <Image src="/2020/11/okiro.svg" width="88" height="35" alt="Okiro" />
             </a>
           </div>
-          <p className="footer__description">
-            A minimal, functional theme for running a paid-membership publication on Ghost.
-          </p>
+          <p className="footer__description">{translate.footer.description}</p>
           <div className="footer__icons">
             <a href="#" aria-label="link Facebook">
               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

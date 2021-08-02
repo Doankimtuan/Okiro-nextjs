@@ -4,31 +4,15 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
+import { enUS, ja } from '../../translations';
 
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [language, setLanguage] = useState('eng');
-  const router = useRouter();
+  const { locale, push } = useRouter();
   const ref = createRef();
-  const menuEng = {
-    main: [
-      { title: 'Home', link: '/' },
-      { title: 'Membership', link: '/membership' },
-      { title: 'Style Guide', link: '/style' },
-    ],
-    dropdown: ['Features', 'Authors', 'Tags', 'Subscribe', 'Contact', 'Get Theme'],
-    auth: ['Sign in', 'Sign up'],
-  };
-  const menuja = {
-    main: [
-      { title: 'ホーム', link: '/' },
-      { title: 'メンバーシップ', link: '/membership' },
-      { title: 'スタイルガイド', link: '/style' },
-    ],
-    dropdown: ['機能', '作成者', 'タグ', '購読', '連絡先', 'テーマの取得'],
-    auth: ['サインイン', 'サインアップ'],
-  };
-  const menu = router.locale === 'en-US' ? menuEng : menuja;
+
+  const t = locale === 'ja' ? ja : enUS;
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -45,17 +29,14 @@ export default function Header() {
   const handleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
-  useEffect(() => {
-    router.locale === 'en-US' ? setLanguage('eng') : setLanguage('ja');
-  }, [router.locale]);
 
   const handleChangeLanguage = (e) => {
     setLanguage(e.target.value);
     // e.target.value === 'ja' ? router.push('/ja') : router.push('/hello');
     if (e.target.value !== 'ja') {
-      router.back('/en-US');
+      push('/', '/', { locale: 'en-US' });
     } else {
-      router.push('/ja');
+      push('/', '/', { locale: 'ja' });
     }
   };
 
@@ -74,7 +55,7 @@ export default function Header() {
 
           <nav>
             <ul>
-              {menu.main.map((elm, index) => (
+              {t.menu.main.map((elm, index) => (
                 <li key={index}>
                   <Link href={`${elm.link}`}>
                     <a className={elm.title === 'Home' || elm === 'ホーム' ? 'is-active' : ''}>
@@ -89,7 +70,7 @@ export default function Header() {
                 </svg>
                 {openDropdown && (
                   <ul ref={ref}>
-                    {menu.dropdown.map((elm, index) => (
+                    {t.menu.dropdown.map((elm, index) => (
                       <li key={index}>
                         <a>{elm}</a>
                       </li>
@@ -107,12 +88,12 @@ export default function Header() {
               </li>
               <li className="signin">
                 <Link href="/sign-in">
-                  <a id="signin">{menu.auth[0]}</a>
+                  <a id="signin">{t.menu.auth[0]}</a>
                 </Link>
               </li>
               <li className="signup">
                 <a id="signup" className="global__button">
-                  {menu.auth[1]}
+                  {t.menu.auth[1]}
                 </a>
               </li>
               <li>
